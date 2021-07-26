@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  db:
+    environment:
+      - POSTGRES_USER=crypto_bot
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_DATABASES=crypto_bot
+    ports:
+      - 5432:5432
+    volumes:
+      - postgresql_db:/var/lib/postgresql/data
+      - ./:/app
+
+
+volumes:
+  postgresql_db:
+  redis_data:
