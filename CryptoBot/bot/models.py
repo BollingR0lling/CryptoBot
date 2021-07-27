@@ -16,9 +16,9 @@ class MenuItem(models.Model):
 class TgProfile(models.Model):
     creation_time = models.DateTimeField(auto_now=True)
     tg_id = models.IntegerField(unique=True)
-    username = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, null=True)
     first_name = models.CharField(max_length=100)
-    second_name = models.CharField(max_length=100)
+    second_name = models.CharField(max_length=100, null=True)
 
     class Meta:
         verbose_name = "Профиль"
