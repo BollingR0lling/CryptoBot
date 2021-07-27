@@ -10,7 +10,7 @@ class MenuItem(models.Model):
         verbose_name_plural = "Пункты меню"
 
     def __str__(self):
-        return f"MenuItem(name:{self.name}, code:{self.code})"
+        return f"Пункт меню (имя:{self.name}, код:{self.code})"
 
 
 class TgProfile(models.Model):
@@ -26,8 +26,8 @@ class TgProfile(models.Model):
 
     def __str__(self):
         return (
-            f"TgProfile(tg_id:{self.tg_id},"
+            f"Профиль телеграма(id:{self.tg_id},"
             f" username:{self.username},"
-            f" first_name:{self.first_name},"
-            f" second_name:{self.second_name})"
+            f" имя:{self.first_name},"
+            f" фамилия:{self.second_name})"
         )
