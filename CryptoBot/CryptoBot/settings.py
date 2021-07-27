@@ -90,8 +90,8 @@ DATABASES = {
         'ENGINE': 'psqlextra.backend',
         'NAME': env("PSQL_DB_NAME"),
         'USER': env("PSQL_DB_USER"),
-        'HOST': env("PSQL_DB_HOST"),
-        'PORT': '5454',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 

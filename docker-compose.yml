@@ -8,12 +8,25 @@ services:
       - POSTGRES_USER=crypto_bot
       - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_DATABASES=crypto_bot
-    ports:
-      - 5454:5432
     volumes:
       - postgresql_db:/var/lib/postgresql/data
-      - ./:/app
-
+  web:
+    build:
+      context: .
+      dockerfile: CryptoBot/CI/Docker/Dockerfile
+    container_name: crypto_bot
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app/
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  ngrok:
+    image: wernight/ngrok
+    links:
+      - web
+    command: sh -c "ngrok authtoken ${NGROK_AUTHTOKEN} && ngrok http --region=us --hostname=${NGROK_HOST} web:8000"
 
 volumes:
   postgresql_db:
