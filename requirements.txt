@@ -1,6 +1,6 @@
 Django==3.2.5
 django-environ==0.4.5
-psycopg2-binary
-django-telegrambot
-cryptocompare
-django-postgres-extra
+psycopg2-binary==2.9.1
+django-telegrambot==1.0.1
+cryptocompare==0.7.5
+django-postgres-extra==2.0.2
